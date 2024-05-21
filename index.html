@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magasnyomású Felülettisztítás</title>
+    <style>
+        * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        }
+
+        @keyframes color {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        body {
+            color: #333333;
+            font-family: 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(45deg, #ebb434, #eb3461, #5d2ab5);
+            background-size: 300% 300%;
+            animation: color 12s ease-in-out infinite;
+        }
+        .container {
+            margin: 0 auto;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            padding: 20px;
+            width: 100%;
+            background-image: url("hatter.jpg");
+            background-size: cover;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .header, .services, .references {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            font-size: 2em;
+        }
+        .header a {
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+        .logo {
+            width: 180px;
+            height: auto;
+        }
+        h2 {
+            color: #333333;
+            font-size: 1.5em;
+        }
+        p, a {
+            color: #333333;
+            font-size: 1em;
+        }
+        .services {
+            width: 100%;
+            padding: 20px;
+            font-size: 100%;
+        }
+        .call-to-action {
+            padding: 10px;
+            color: #ffffff;
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-family: "Apple Chancery", cursive;
+        }
+        .references {
+            font-size: 2em;
+            text-align: center;
+        }
+        .ba
+        {
+            width: 40%;
+        }
+        .ba2
+        {
+            width: 44.5%;
+        }
+        .results-box {
+            border: 2px solid #333;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+        }
+        .title {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .before-after {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .ba, .ba2 {
+            cursor: pointer;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .modal {
+          display: none;
+          position: fixed;
+          z-index: 1;
+          padding-top: 100px;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background-color: rgb(0,0,0);
+          background-color: rgba(0,0,0,0.9);
+        }
+        .modal-image {
+            width: 100%;
+            height: auto;
+        }
+        .modal-content {
+          margin: auto;
+          display: block;
+          width: 80%;
+          max-width: 700px;
+        }
+        
+        .close {
+          position: absolute;
+          top: 15px;
+          right: 35px;
+          color: #f1f1f1;
+          font-size: 40px;
+          font-weight: bold;
+          transition: 0.3s;
+        }
+        
+        .close:hover,
+        .close:focus {
+          color: #bbb;
+          text-decoration: none;
+          cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Logo" class="logo">
+            <h1>Magasnyomású Felülettisztítás Országosan</h1>
+            <div>
+                <a href="mailto:mfelulettisztitas88@gmail.com">E-mail</a><br>
+            </div>
+        </div>
+        <div class="call-to-action">
+            <p>Hívjon most: <a href="tel:06306872162">(30) 687 2162</a></p>
+        </div>
+        <div class="services">
+            <h2>Szolgáltatások</h2>
+            <p>✔️ TETŐMOSÁS (TELJES ERESZCSATORNA TISZTÍTÁSSAL)<br>
+               ✔️ HOMLOKZAT TISZTÍTÁS (VEGYSZERES)<br>
+               ✔️ EGYÉB FELÜLETEK TISZTÍTÁSA<br>
+               ✔️ INGYENES FELMÉRÉS, ÁRAJÁNLAT</p>
+        </div>
+        <div class="results-box">
+            <h2 class="title">Eredmények</h2>
+            <div class="before-after">
+                <img id="myImg" src="beforeafter.jpg" alt="BeforeAfter" class="ba">
+                <img id="myImg2" src="beforeafter2.jpg" alt="BeforeAfter" class="ba2">
+            </div>
+        </div>
+
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content modal-image" id="img01">
+        </div>
+        <div class="references">
+            <a href="https://www.facebook.com/people/Magasnyom%C3%A1s%C3%BA-fel%C3%BClettiszt%C3%ADt%C3%A1s-orsz%C3%A1gosan/61556202670429/" target="_blank">Referenciák</a>
+        </div>
+    </div>
+    <div>
+        <h2>A tetőtisztításról</h2>
+        <p>A tetőtisztítás, mint szolgáltatás magasnyomású mosóval történik, melyhez csak vízvételi forrásra van szükségünk (pl. egy kerti-, vagy hálózati csap).
+        <br>
+        Az évek során lerakódott, képződött (pl. moha, alga, füst, por és egyéb) szennyeződések eltávolítására ajánljuk, mivel lényegesen olcsóbb, mint egy komplett tetőcsere.
+        <br>
+        A tetőtisztítás alapára: 900,- Ft/nm.
+        Ez függ a tető kialakításától, méretétől, szennyezettségétől, ezért minden esetben előzetes helyszíni felmérés szükséges.</p>
+        <br>
+    </div>
+    <script>
+        var modal = document.getElementById("myModal");
+        var img = document.getElementById("myImg");
+        var img2 = document.getElementById("myImg2");
+        var modalImg = document.getElementById("img01");
+        img.onclick = function(){
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        }
+        img2.onclick = function(){
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        }
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() { 
+            modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
